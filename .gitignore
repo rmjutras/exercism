@@ -1,3 +1,5 @@
 exercism/**
 **/.exercism/**
 **/__pycache__/**
+python/**/HELP.md
+python/**/HINTS.md
