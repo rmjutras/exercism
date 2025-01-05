@@ -64,13 +64,12 @@ def fail_safe(temperature, neutrons_produced_per_second, threshold):
     """
 
     criticality = temperature * neutrons_produced_per_second
-    status_value = threshold / criticality
-
-    if status_value >= 10 and status_value <= -10:
-        return 'NORMAL'
-    elif status_value < 90:
+    status_value = (criticality / threshold) * 100
+    if status_value < 90:
         return 'LOW'
+    if status_value >= 90 and status_value <= 110:
+        return 'NORMAL'
     else:
         return 'DANGER'
 
-    
+ 
