@@ -1,5 +1,21 @@
 """Functions to keep track and alter inventory."""
 
+def alter_inventory(inventory, items, increment):
+    """ Renee created this as an abstraction of the add and decrement item functions
+    """
+    for item in items:
+        if inventory.get(item) is None:
+            if increment > 0:
+                inventory[item] = increment
+            else:
+                pass
+        elif (inventory[item] + increment) < 1:
+            inventory[item] = 0
+        else:
+            inventory[item] += increment
+    return inventory
+
+
 def add_items(inventory, items):
     """Add or increment items in inventory using elements from the items `list`.
 
@@ -7,12 +23,7 @@ def add_items(inventory, items):
     :param items: list - list of items to update the inventory with.
     :return: dict - the inventory updated with the new items.
     """
-    for item in items:
-        if inventory.get(item) is None:
-            inventory[item] = 1
-        else:
-            inventory[item] += 1
-    return inventory
+    return alter_inventory(inventory, items, 1)
 
 
 def create_inventory(items):
@@ -31,14 +42,7 @@ def decrement_items(inventory, items):
     :param items: list - list of items to decrement from the inventory.
     :return: dict - updated inventory with items decremented.
     """
-    for item in items:
-        if inventory.get(item) is None:
-            pass
-        elif inventory[item] <= 1:
-            inventory[item] = 0
-        else:
-            inventory[item] += -1
-    return inventory
+    return alter_inventory(inventory, items, -1)
 
 
 def remove_item(inventory, item):
