@@ -1,5 +1,13 @@
 exercism/**
 **/.exercism/**
 **/__pycache__/**
-python/**/HELP.md
-python/**/HINTS.md
+**/HELP.md
+**/HINTS.md
+typescript/node_modules/**
+**/.vscode/**
+**/.yarn/**
+**.cjs
+**.js
+**.yml
+**.json
+**/yarn.lock

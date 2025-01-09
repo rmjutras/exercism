@@ -1,0 +1,2 @@
+alias exercism="~/git/exercism/exercism/exercism"
+alias corepack-install="corepack yarn install && corepack yarn dlx @yarnpkg/sdks vscode"
